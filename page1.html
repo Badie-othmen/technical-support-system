@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Mon Site</title>
+
+<style>
+body{
+font-family:Arial;
+background:#f4f4f4;
+margin:0;
+}
+
+header{
+background:#333;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+}
+
+button{
+padding:8px 15px;
+background:#007BFF;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+.container{
+width:80%;
+margin:auto;
+margin-top:20px;
+}
+
+.post{
+background:white;
+padding:15px;
+margin:10px 0;
+border-radius:10px;
+box-shadow:0 0 5px gray;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>Mon Website</h2>
+
+<button onclick="window.location='login.html'">
+Admin Login
+</button>
+
+</header>
+
+<div class="container">
+
+<h3>Posts</h3>
+
+<div id="posts"></div>
+
+</div>
+
+<script>
+
+let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+let container = document.getElementById("posts");
+
+posts.forEach(p => {
+
+let div = document.createElement("div");
+
+div.className="post";
+
+div.innerText=p;
+
+container.appendChild(div);
+
+});
+
+</script>
+
+</body>
+</html>
